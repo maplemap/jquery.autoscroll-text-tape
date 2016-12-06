@@ -1,10 +1,10 @@
 import styles from './styles.css';
 
 /*
- *  Project:
- *  Description:
- *  Author:
- *  License:
+ *  Project: Auto scroll text tape jQuery plugin
+ *  Description: jQuery plugin for autoscrolling of tape of text
+ *  Author: Sergey Illarionov <easthunch@gmail.com> (http://maplemap.net/)
+ *  License: MIT License
  */
 
 ;(function ( $, window, document, undefined ) {
