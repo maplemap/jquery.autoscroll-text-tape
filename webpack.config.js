@@ -5,7 +5,7 @@ const NODE_HOST = process.env.NODE_HOST || '0.0.0.0';
 const NODE_PORT = process.env.NODE_PORT || 8090;
 
 module.exports = {
-    entry: getEntrySources(['./src/main.js']),
+    entry: getEntrySources(['./src/plugin.js']),
     output: {
         path: __dirname + '/dist/',
         publicPath: "/dist", //assets data
@@ -14,9 +14,8 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /\.less$/,
-                loader: "style-loader!css-loader!postcss-loader!less",
-                exclude: [/node_modules/]
+              test: /\.css$/,
+              loader: 'style!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
             },
             {
                 test: /\.js$/,
