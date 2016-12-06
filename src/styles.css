@@ -1,0 +1,10 @@
+.wrapper {
+  overflow: hidden;
+}
+.tape {
+  position: relative;
+  left: 0;
+  display: inline-block;
+  white-space: nowrap;
+  will-change: left;
+}
