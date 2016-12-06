@@ -4,12 +4,73 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Autoscroll Text Tape Plugin</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <style>
+      body {
+        font-size: 100%;
+        font-family: 'Roboto', sans-serif;
+        background: #f9f9f9;
+      }
+      .container {
+        position: relative;
+        padding: 4px 10px;
+        border: 1px solid #dadada;
+        margin: 1.5em auto 0 auto;
+      }
+      .container--l {
+        width: 70%;
+      }
+      .container--m {
+        width: 40%;
+      }
+      .container--s {
+        width: 20%;
+      }
+      .text-container {
+        text-align: center;
+      }
+      .text-container:before {
+        content: 'without plugin';
+        position: absolute;
+        top: -1.3em;
+        left: 0;
+        text-transform: uppercase;
+        font-size: .65em;
+        opacity: .6;
+      }
+      .text-container.text-container--with-plugin:before {
+        content: 'with plugin';
+      }
+    </style>
 </head>
 <body>
+  <div class="container container--l">
+    <div class="text-container">Mama always said life was like a box of chocolates. You never know what you’re gonna get.</div>
+  </div>
+  <div class="container container--l">
+    <div class="text-container text-container--with-plugin">Mama always said life was like a box of chocolates. You never know what you’re gonna get.</div>
+  </div>
+  <div class="container container--m">
+    <div class="text-container">Mama always said life was like a box of chocolates. You never know what you’re gonna get.</div>
+  </div>
+  <div class="container container--m">
+    <div class="text-container text-container--with-plugin">Mama always said life was like a box of chocolates. You never know what you’re gonna get.</div>
+  </div>
+  <div class="container container--s">
+    <div class="text-container">Mama always said life was like a box of chocolates. You never know what you’re gonna get.</div>
+  </div>
+  <div class="container container--s">
+    <div class="text-container text-container--with-plugin">Mama always said life was like a box of chocolates. You never know what you’re gonna get.</div>
+  </div>
   <script
-  src="https://code.jquery.com/jquery-3.1.1.min.js"
-  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-  crossorigin="anonymous"></script>
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
   <script src="../dist/autoscroll-text-tape.min.js"></script>
+  <script type="text/javascript">
+    $('.text-container--with-plugin').autoTextTape({
+      tapeOffset: 'sdsd'
+    });
+  </script>
 </body>
 </html>
