@@ -66,8 +66,28 @@ import styles from './styles.css';
         compareWidthOfContainers() {
             this.wrapperWidth = this.$wrapper.innerWidth();
             this.txtContainerWidth = this.$textContainer.innerWidth();
+            this.$textContainer.off('mouseenter mouseleave');
 
-            (this.txtContainerWidth > this.wrapperWidth) ? this.startMoveTextTape(): this.stopMoveTextTape();
+            if(this.options.moveOnHover) {
+                if(this.txtContainerWidth > this.wrapperWidth) {
+                    this.$textContainer.on({
+                        mouseenter: () => {
+                            this.startMoveTextTape()
+                        },
+                        mouseleave: () => {
+                            this.stopMoveTextTape();
+                        }
+                    });
+                } else {
+                }
+            } else {
+                if(this.txtContainerWidth > this.wrapperWidth) {
+                    this.startMoveTextTape()
+                } else {
+                    this.tapeToStartPosition();
+                    this.stopMoveTextTape();
+                }
+            }
         },
 
         startMoveTextTape() {
