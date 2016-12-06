@@ -10,20 +10,28 @@ import styles from './styles.css';
 ;(function ( $, window, document, undefined ) {
 
     const pluginName = 'autoTextTape',
-          defaults = {
-            speed: 50,
+        settings = {
+          speed: {
+              slow: 100,
+              normal: 50,
+              fast: 10
+          }
+        },
+        defaults = {
+            speed: 'normal',
             tapeOffset: 5
-          };
+        };
 
     function Plugin( element, options ) {
         this.element = element;
 
+        options = this._deleteUnValidateOptions(options);
         this.options = $.extend( {}, defaults, options);
 
         this._defaults = defaults;
         this._name = pluginName;
 
-        this.checkDefaultOptions( this.init.call(this) );
+        this.init();
     }
 
     Plugin.prototype = {
@@ -34,25 +42,6 @@ import styles from './styles.css';
             this.$textContainer = this.$wrapper.find( `.${styles.tape}` );
 
             this.startEngine();
-        },
-
-        checkDefaultOptions(callback) {
-            $.each(this._defaults, (key) => {
-                switch(this.options[key]) {
-                  case 'speed':
-                    // ...
-                    break;
-
-                  case 'tapeOffset':
-                    // ...
-                    break;
-
-                  default:
-                    break;
-                }
-            })
-
-            if(callback) callback();
         },
 
         startEngine() {
@@ -101,7 +90,7 @@ import styles from './styles.css';
                     } else {
                         this.tapeReverse = false;
                     }
-                }, this.options.speed);
+                }, settings.speed[this.options.speed]);
             }
         },
 
@@ -117,7 +106,36 @@ import styles from './styles.css';
             });
 
             if (callback) callback.call(this);
-        }
+        },
+
+        _deleteUnValidateOptions(options) {
+            $.each(options, (key, value) => {
+                if (key in defaults) {
+
+                    switch (key) {
+                      case 'speed':
+                        if(settings.speed[options.speed] === undefined) {
+                            delete options.speed;
+                        }
+
+                        break;
+
+                      case 'tapeOffset':
+                        if(typeof options[key] !== typeof defaults[key]) {
+                            delete options[key];
+                        }
+
+                        break;
+
+                      default:
+                    }
+                }
+            })
+
+            console.log(options);
+
+            return options;
+        },
     };
 
 
