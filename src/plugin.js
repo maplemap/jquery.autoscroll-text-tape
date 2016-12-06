@@ -19,7 +19,8 @@ import styles from './styles.css';
         },
         defaults = {
             speed: 'normal',
-            tapeOffset: 5
+            tapeOffset: 0,
+            moveOnHover: false
         };
 
     function Plugin( element, options ) {
@@ -50,7 +51,10 @@ import styles from './styles.css';
         },
 
         restartEngine() {
-            this.stopMoveTextTape( this.compareWidthOfContainers );
+            this.stopMoveTextTape(() => {
+                this.tapeToStartPosition();
+                this.compareWidthOfContainers();
+            });
         },
 
         watchWindowResize() {
@@ -91,13 +95,14 @@ import styles from './styles.css';
         },
 
         startMoveTextTape() {
-            const containersWidthDiff = this.txtContainerWidth - this.wrapperWidth;
+            let containersWidthDiff = this.txtContainerWidth - this.wrapperWidth;
+            containersWidthDiff = containersWidthDiff + this.options.tapeOffset;
 
             if(!this.tapeInterval) {
                 this.tapeReverse = null;
 
                 this.tapeInterval = setInterval(() => {
-                    const txtContainerPosition = parseInt( this.$textContainer.css('left').slice(0, -2), 10 );
+                    let txtContainerPosition = parseInt( this.$textContainer.css('left').slice(0, -2), 10 );
 
                     if(txtContainerPosition > -containersWidthDiff && !this.tapeReverse) {
                         this.$textContainer.css({left: txtContainerPosition - 1})
@@ -105,7 +110,8 @@ import styles from './styles.css';
                         this.tapeReverse = true;
                     }
 
-                    if(txtContainerPosition && this.tapeReverse) {
+
+                    if(txtContainerPosition - this.options.tapeOffset && this.tapeReverse) {
                         this.$textContainer.css({left: txtContainerPosition + 1})
                     } else {
                         this.tapeReverse = false;
@@ -121,11 +127,13 @@ import styles from './styles.css';
                 this.tapeReverse = null;
             }
 
+            if (callback) callback.call(this);
+        },
+
+        tapeToStartPosition() {
             this.$textContainer.animate({left: 0}, 'slow', () => {
                 $(this).css({left: 'auto'});
             });
-
-            if (callback) callback.call(this);
         },
 
         _deleteUnValidateOptions(options) {
@@ -134,6 +142,7 @@ import styles from './styles.css';
 
                     switch (key) {
                       case 'speed':
+                      case 'moveOnHover':
                         if(settings.speed[options.speed] === undefined) {
                             delete options.speed;
                         }
@@ -151,8 +160,6 @@ import styles from './styles.css';
                     }
                 }
             })
-
-            console.log(options);
 
             return options;
         },

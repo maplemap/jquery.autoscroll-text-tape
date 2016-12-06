@@ -39,7 +39,10 @@
         opacity: .6;
       }
       .text-container.text-container--with-plugin:before {
-        content: 'with plugin';
+        content: 'with plugin (default)';
+      }
+      .text-container.text-container--with-plugin-moveOnHover:before {
+        content: 'with plugin (move on hover)';
       }
     </style>
 </head>
@@ -50,17 +53,26 @@
   <div class="container container--l">
     <div class="text-container text-container--with-plugin">Mama always said life was like a box of chocolates. You never know what you’re gonna get.</div>
   </div>
+  <div class="container container--l">
+    <div class="text-container text-container--with-plugin-moveOnHover">Mama always said life was like a box of chocolates. You never know what you’re gonna get.</div>
+  </div>
   <div class="container container--m">
     <div class="text-container">Mama always said life was like a box of chocolates. You never know what you’re gonna get.</div>
   </div>
   <div class="container container--m">
     <div class="text-container text-container--with-plugin">Mama always said life was like a box of chocolates. You never know what you’re gonna get.</div>
   </div>
+  <div class="container container--m">
+    <div class="text-container text-container--with-plugin-moveOnHover">Mama always said life was like a box of chocolates. You never know what you’re gonna get.</div>
+  </div>
   <div class="container container--s">
     <div class="text-container">Mama always said life was like a box of chocolates. You never know what you’re gonna get.</div>
   </div>
   <div class="container container--s">
     <div class="text-container text-container--with-plugin">Mama always said life was like a box of chocolates. You never know what you’re gonna get.</div>
+  </div>
+  <div class="container container--s">
+    <div class="text-container text-container--with-plugin-moveOnHover">Mama always said life was like a box of chocolates. You never know what you’re gonna get.</div>
   </div>
   <script
     src="https://code.jquery.com/jquery-3.1.1.min.js"
@@ -69,7 +81,13 @@
   <script src="../dist/autoscroll-text-tape.min.js"></script>
   <script type="text/javascript">
     $('.text-container--with-plugin').autoTextTape({
-      tapeOffset: 'sdsd'
+      tapeOffset: 20,
+      speed: 'normal'
+    });
+    $('.text-container--with-plugin-moveOnHover').autoTextTape({
+      tapeOffset: 20,
+      speed: 'normal',
+      moveOnHover: true
     });
   </script>
 </body>
