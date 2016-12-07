@@ -5,17 +5,18 @@ const NODE_HOST = process.env.NODE_HOST || '0.0.0.0';
 const NODE_PORT = process.env.NODE_PORT || 8090;
 
 module.exports = {
-    entry: getEntrySources(['./src/plugin.js']),
+    entry: getEntrySources(['./src/jquery.autoScrollTextTape.js']),
     output: {
         path: __dirname + '/dist/',
         publicPath: "/dist", //assets data
-        filename: 'autoscroll-text-tape.min.js'
+        filename: 'jquery.autoScrollTextTape.min.js'
     },
     module: {
         loaders: [
             {
-              test: /\.css$/,
-              loader: 'style!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
+                test: /\.css$/,
+                loader: 'style-loader!css-loader',
+                exclude: [/node_modules/, /public/]
             },
             {
                 test: /\.js$/,

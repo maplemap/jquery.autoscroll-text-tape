@@ -78,15 +78,11 @@
     src="https://code.jquery.com/jquery-3.1.1.min.js"
     integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
     crossorigin="anonymous"></script>
-  <script src="../dist/autoscroll-text-tape.min.js"></script>
+  <script src="../dist/jquery.autoScrollTextTape.min.js"></script>
+
   <script type="text/javascript">
-    $('.text-container--with-plugin').autoTextTape({
-      tapeOffset: 20,
-      speed: 'normal'
-    });
+    $('.text-container--with-plugin').autoTextTape();
     $('.text-container--with-plugin-moveOnHover').autoTextTape({
-      tapeOffset: 20,
-      speed: 'normal',
       moveOnHover: true
     });
   </script>

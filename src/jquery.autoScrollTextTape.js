@@ -1,4 +1,4 @@
-import styles from './styles.css';
+import './styles.css';
 
 /*
  *  Project: Auto scroll text tape jQuery plugin
@@ -38,9 +38,9 @@ import styles from './styles.css';
     Plugin.prototype = {
         init() {
             this.$wrapper = $(this.element);
-            this.$wrapper.addClass( styles.wrapper );
-            this.$wrapper.html( `<div class='${styles.tape}'>${this.$wrapper.text()}</div>` );
-            this.$textContainer = this.$wrapper.find( `.${styles.tape}` );
+            this.$wrapper.addClass("autoscroll-tape__wrapper");
+            this.$wrapper.html( `<div class="autoscroll-tape__tape">${this.$wrapper.text()}</div>` );
+            this.$textContainer = this.$wrapper.find(".autoscroll-tape__tape");
 
             this.startEngine();
         },
@@ -52,7 +52,7 @@ import styles from './styles.css';
 
         restartEngine() {
             this.stopMoveTextTape(() => {
-                this.tapeToStartPosition();
+                this.tapeToStaqrtPosition();
                 this.compareWidthOfContainers();
             });
         },
