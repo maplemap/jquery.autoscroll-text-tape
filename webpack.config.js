@@ -5,11 +5,11 @@ const NODE_HOST = process.env.NODE_HOST || '0.0.0.0';
 const NODE_PORT = process.env.NODE_PORT || 8090;
 
 module.exports = {
-    entry: getEntrySources(['./src/jquery.autoScrollTextTape.js']),
+    entry: getEntrySources(['./src/jquery.autoscrollTextTape.js']),
     output: {
         path: __dirname + '/dist/',
         publicPath: "/dist", //assets data
-        filename: 'jquery.autoScrollTextTape.min.js'
+        filename: 'jquery.autoscrollTextTape.min.js'
     },
     module: {
         loaders: [
