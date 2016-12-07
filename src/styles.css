@@ -1,7 +1,7 @@
-.wrapper {
+.autoscroll-tape__wrapper {
   overflow: hidden;
 }
-.tape {
+.autoscroll-tape__tape {
   position: relative;
   left: 0;
   display: inline-block;
