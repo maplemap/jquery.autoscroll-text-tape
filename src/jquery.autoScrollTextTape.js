@@ -52,7 +52,7 @@ import './styles.css';
 
         restartEngine() {
             this.stopMoveTextTape(() => {
-                this.tapeToStaqrtPosition();
+                this.tapeToStartPosition();
                 this.compareWidthOfContainers();
             });
         },
