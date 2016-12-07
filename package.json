@@ -1,18 +1,20 @@
 {
   "name": "autoscroll-text-tape-plugin",
   "version": "0.0.1",
+  "license": "MIT License",
   "description": "plugin for horizontal text scrolling",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/maplemap/autoscroll-text-tape-plugin"
+  },
+  "author": {
+    "name": "Sergey Illarionov <easthunch@gmail.com> (http://maplemap.net/)"
+  },
   "scripts": {
     "prod-build": "NODE_ENV=production webpack",
     "dev-build": "NODE_ENV=development webpack",
     "dev-watch": "NODE_ENV=development webpack --watch",
     "devserver": "webpack-dev-server"
-  },
-  "author": {
-    "name": "Sergey Illarionov <easthunch@gmail.com> (http://maplemap.net/)"
-  },
-  "dependencies": {
-    "less": "^2.7.1"
   },
   "devDependencies": {
     "babel-core": "^6.9.1",
