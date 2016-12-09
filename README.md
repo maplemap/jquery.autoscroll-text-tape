@@ -57,5 +57,5 @@ $(document).ready(function(){
 |    Property    | Type   |          Description          |
 | -------------  |  ----  |          -----------          |
 | speed          | string | Default: 'normal'. The are 3 options: ```slow```, ```normal```, ```fast``` |
-| tapeOffset     | int    | Default: 0. It's parameter for offset of tape with text on right and left sides|
+| tapeOffset     | int    | Default: 0. It's parameter for offset of tape with text on right and left sides. In pixels.|
 | moveOnHover    | bool   | Default: false. Text tape will move only after hover  |

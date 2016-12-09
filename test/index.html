@@ -35,7 +35,7 @@
         top: -1.3em;
         left: 0;
         text-transform: uppercase;
-        font-size: .65em;
+        font-size: .7em;
         opacity: .6;
       }
       .text-container.text-container--with-plugin:before {
@@ -43,6 +43,12 @@
       }
       .text-container.text-container--with-plugin-moveOnHover:before {
         content: 'with plugin (move on hover)';
+      }
+      .text-container.text-container--with-plugin-speed-fast:before {
+        content: 'with plugin (speed: "fast")';
+      }
+      .text-container.text-container--with-plugin-tapeOffset:before {
+        content: 'with plugin (tapeOffset: 20)';
       }
     </style>
 </head>
@@ -72,6 +78,12 @@
     <div class="text-container text-container--with-plugin">Mama always said life was like a box of chocolates. You never know what you’re gonna get.</div>
   </div>
   <div class="container container--s">
+    <div class="text-container text-container--with-plugin-speed-fast">Mama always said life was like a box of chocolates. You never know what you’re gonna get.</div>
+  </div>
+  <div class="container container--s">
+    <div class="text-container text-container--with-plugin-tapeOffset">Mama always said life was like a box of chocolates. You never know what you’re gonna get.</div>
+  </div>
+  <div class="container container--s">
     <div class="text-container text-container--with-plugin-moveOnHover">Mama always said life was like a box of chocolates. You never know what you’re gonna get.</div>
   </div>
   <script
@@ -84,6 +96,12 @@
     $('.text-container--with-plugin').autoTextTape();
     $('.text-container--with-plugin-moveOnHover').autoTextTape({
       moveOnHover: true
+    });
+    $('.text-container--with-plugin--speed-fast').autoTextTape({
+      speed: 'fast'
+    });
+    $('.text-container--with-plugin-tapeOffset').autoTextTape({
+      tapeOffset: 20
     });
   </script>
 </body>
