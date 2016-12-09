@@ -1,4 +1,7 @@
 # Auto scroll text tape jQuery plugin
+jQuery plugin for autoscrolling text in wrapper.
+It must work only in case when the wrapper of the text will be less than text.
+##[Demo](https://maplemap.github.io/jquery.autoscroll-text-tape/test/)
 
 ## Quick start
 
@@ -51,3 +54,8 @@ $(document).ready(function(){
 
 
 ### Options
+|    Property    | Type   |          Description          |
+| -------------  |  ----  |          -----------          |
+| speed          | string | Default: 'normal'. The are 3 options: ```slow```, ```normal```, ```fast``` |
+| tapeOffset     | int    | Default: 0. It's parameter for offset of tape with text on right and left sides|
+| moveOnHover    | bool   | Default: false. Text tape will move only after hover  |
