@@ -1,9 +1,7 @@
-# Auto scroll text tape jQuery plugin
+# Auto scroll text tape jQuery plugin ([Demo](https://maplemap.github.io/jquery.autoscroll-text-tape/test/))
 jQuery plug-in for autoscrolling text in wrapper.
 It must work only in case when the wrapper of the text will be less than text.
 This plug-in reacts to change of page size.
-
-See [Demo](https://maplemap.github.io/jquery.autoscroll-text-tape/test/)
 
 ## Quick start
 
